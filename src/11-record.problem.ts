@@ -1,42 +1,36 @@
-import { expect, it } from "vitest";
-
-interface Cache {
-  [index: string]: string;
-}
+import { expect, it } from 'vitest'
 
 const createCache = () => {
-  const cache: Record<string, string> = {};
-  // const cache: { [index: string]: string } = {}
-  // const cache: Cache = {};
+  const cache = {}
 
   const add = (id: string, value: string) => {
-    cache[id] = value;
-  };
+    cache[id] = value
+  }
 
   const remove = (id: string) => {
-    delete cache[id];
-  };
+    delete cache[id]
+  }
 
   return {
     cache,
     add,
     remove,
-  };
-};
+  }
+}
 
-it("Should add values to the cache", () => {
-  const cache = createCache();
+it('Should add values to the cache', () => {
+  const cache = createCache()
 
-  cache.add("123", "Matt");
+  cache.add('123', 'Matt')
 
-  expect(cache.cache["123"]).toEqual("Matt");
-});
+  expect(cache.cache['123']).toEqual('Matt')
+})
 
-it("Should remove values from the cache", () => {
-  const cache = createCache();
+it('Should remove values from the cache', () => {
+  const cache = createCache()
 
-  cache.add("123", "Matt");
-  cache.remove("123");
+  cache.add('123', 'Matt')
+  cache.remove('123')
 
-  expect(cache.cache["123"]).toEqual(undefined);
-});
+  expect(cache.cache['123']).toEqual(undefined)
+})
